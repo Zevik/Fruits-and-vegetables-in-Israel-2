@@ -321,6 +321,67 @@
             opacity: 0.9;
         }
         
+        /* --- כרטיסי נתונים קטנים במבוא --- */
+        .mini-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .mini-stat {
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+        .mini-stat:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+        .mini-stat .stat-value {
+            display: block;
+            font-family: var(--header-font);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark-accent);
+            margin-bottom: 8px;
+        }
+        .mini-stat .stat-description {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin: 0;
+            opacity: 0.8;
+        }
+        
+        /* --- ציטוט מובלט במיתוס פערי התיווך --- */
+        .myth-quote {
+            background-color: rgba(78, 205, 196, 0.1);
+            border-right: 5px solid var(--accent-color);
+            padding: 30px;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            font-size: 1.15rem;
+            line-height: 1.7;
+            font-style: italic;
+            position: relative;
+        }
+        .myth-quote p {
+            margin: 0;
+            color: var(--text-color);
+        }
+        .myth-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-family: var(--header-font);
+            opacity: 0.3;
+        }
+        
         /* --- פתרונות --- */
         .solutions-grid {
             display: grid;
@@ -446,6 +507,13 @@
                 height: 50px;
             }
         }
+        
+        /* --- עיצוב למסכים גדולים --- */
+        @media (min-width: 769px) {
+            .solutions-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -477,6 +545,18 @@
             <div class="container">
                 <h2 class="section-title fade-in-up">תעלומת המחיר הגבוה</h2>
                 <p class="section-subtitle fade-in-up">כולנו מרגישים את זה בכיס. האינסטינקט מאשים את הרשתות ב"חמדנות", אך זוהי אמת חלקית ומטעה. הבעיה אינה נקודתית, אלא מערכתית: ארכיטקטורה כלכלית מעוותת, שנבנתה במשך עשורים ופועלת לטובת החזקים ביותר. דוח זה יחשוף את המנגנון.</p>
+                
+                <h3 class="fade-in-up" style="font-family: var(--header-font); color: var(--primary-color); border-bottom: 3px solid var(--secondary-color); padding-bottom: 10px; margin: 40px 0 30px;">השוק במספרים</h3>
+                <div class="mini-stats-grid fade-in-up">
+                    <div class="mini-stat">
+                        <span class="stat-value">37.7 מיליארד ₪</span>
+                        <p class="stat-description">ערך התפוקה החקלאית השנתית (2023)</p>
+                    </div>
+                    <div class="mini-stat">
+                        <span class="stat-value">כ-20 מיליארד ₪</span>
+                        <p class="stat-description">היקף השוק הקמעונאי לצרכן</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -518,8 +598,8 @@
                             <div class="stat-label">מהייצור מגיע מ-20% מהמגדלים הגדולים</div>
                         </div>
                          <div class="data-item">
-                            <div class="stat-number" data-target="25">0</div>
-                            <div class="stat-label">אובדן מזון (פחת) ממוצע בענף</div>
+                            <div class="stat-number" data-target="52">0</div>
+                            <div class="stat-label">אחוז אובדן המזון (פחת) מהקטיף למדף. בעגבנייה, למשל, כ-46% מהתוצרת אובדת</div>
                         </div>
                          <div class="data-item">
                             <div class="stat-number" data-target="67">0</div>
@@ -530,6 +610,19 @@
             </div>
         </section>
         
+        <section id="myth-busting">
+            <div class="container">
+                <h2 class="section-title fade-in-up">פיצוח מיתוס "פערי התיווך"</h2>
+                <p class="fade-in-up">אחת הטענות הנפוצות ביותר בציבור היא שהרשתות "חומדות" ומרוויחות הרבה מדי על פירות וירקות. הנתונים מראים תמונה שונה: הרווח הקמעונאי על פירות וירקות אכן נמוך יחסית למוצרים אחרים. אבל זו רק חצי האמת, והחצי הזה מסתיר את הבעיה האמיתית.</p>
+                
+                <blockquote class="myth-quote fade-in-up">
+                    <p>בדוח של חברת קדמי משנת 2019 נמצא כי הרווח הממוצע של הרשתות על פירות וירקות הוא כ-8% בלבד, לעומת 25-30% על מוצרים אחרים. נתון זה נתפס כהוכחה ש"הרשתות לא אשמות" ביוקר. האמת? זהו בדיוק הדליל שמסתיר את הבעיה: הרשתות הפכו לסיטונאי של עצמן, והרווח האמיתי מוסתר בחטיבות הלוגיסטיקה שלהן.</p>
+                </blockquote>
+                
+                <p class="fade-in-up">כאשר המרלו"ג (המרכז הלוגיסטי) של הרשת קונה מהחקלאי ב-3 ש"ח לק"ג עגבניות, מוסיף עלויות תפעול ופחת, ואז "מוכר" לחנויות הרשת ב-7 ש"ח - הרווח הגדול כבר נוצר. החנות שקונה ב-7 ש"ח ומוכרת ב-8 ש"ח אכן מרוויחה רק 8%, אבל הקבוצה כולה הרוויחה כמעט 300% על המוצר.</p>
+            </div>
+        </section>
+
         <section id="cartel" style="background-color: #eaf4f4;">
              <div class="container">
                 <h2 class="section-title fade-in-up">הקרטל החוקי: מי באמת מרוויח?</h2>
@@ -637,6 +730,13 @@
                             <p>לאסור בחוק פרקטיקות דורסניות כמו קונסיגנציה, לחייב תנאי תשלום מהירים והוגנים, ולהגביל את יכולתן של הרשתות לפסול סחורה באופן שרירותי.</p>
                         </div>
                     </div>
+                    <div class="solution-item fade-in-up" style="transition-delay: 0.4s;">
+                        <div class="solution-icon">🌱</div>
+                        <div class="solution-content">
+                            <h4>עידוד מכירה ישירה מהחקלאי לצרכן</h4>
+                            <p>פיתוח פלטפורמות דיגיטליות ושווקים מקומיים שיאפשרו לצרכנים לקנות ישירות מהחקלאי. זה יקטין עלויות, יחזק את החקלאי הקטן, ויספק לצרכנים מוצרים טריים יותר במחירים הוגנים יותר.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -645,7 +745,7 @@
 
     <footer>
         <div class="container">
-            <p>מחקר, ניתוח ועיצוב: פרויקט מיוחד 2025</p>
+            <p>מחקר וכתיבה: צוות החקירה המיוחד | עיצוב ופיתוח: פרויקט מיוחד 2025</p>
             <p style="font-size: 0.9rem; opacity: 0.7;">נבנה כדי להאיר את האמת. כל הזכויות שמורות.</p>
         </div>
     </footer>
