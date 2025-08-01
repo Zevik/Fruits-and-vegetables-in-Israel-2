@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>הונאה על הצלחת: האמת מאחורי יוקר הפירות והירקות בישראל</title>
+    <meta name="description" content="דוח עומק מיוחד (2025): ניתוח מערכתי של הכשלים, האינטרסים והכוח המניע את יוקר המחיה בפירות וירקות בישראל.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>️🕵️‍♂️</text></svg>">
+    
+    <style>
+        /* --- Google Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;900&family=Rubik:wght@300;400;600&display=swap');
+
+        /* --- משתני עיצוב גלובליים --- */
+        :root {
+            --primary-color: #1a535c; /* ירוק-כחול עמוק */
+            --secondary-color: #4ecdc4; /* טורקיז בהיר */
+            --accent-color: #ff6b6b; /* קורל-אדום לדגשים */
+            --dark-accent: #c44536; /* אדום-חלודה */
+            --background-color: #f7fff7; /* ירקרק בהיר מאוד */
+            --text-color: #1d3557; /* כחול כהה לטקסט */
+            --light-gray: #e0e0e0;
+            --card-bg: #ffffff;
+            --shadow-sm: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px rgba(0,0,0,0.07);
+            --shadow-lg: 0 20px 25px rgba(0,0,0,0.1);
+            --header-font: 'Heebo', sans-serif;
+            --body-font: 'Rubik', sans-serif;
+            --border-radius: 12px;
+            --transition-smooth: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /* --- עיצוב בסיסי --- */
+        *, *::before, *::after { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--body-font);
+            line-height: 1.8;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        /* --- כותרת ראשית (Hero) --- */
+        .hero {
+            background: linear-gradient(rgba(29, 53, 87, 0.8), rgba(29, 53, 87, 0.7)), url('https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=1974') no-repeat center center/cover;
+            background-attachment: fixed;
+            color: white;
+            padding: clamp(100px, 20vh, 180px) 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: var(--header-font);
+            font-size: clamp(3rem, 7vw, 5rem);
+            font-weight: 900;
+            margin: 0 0 15px;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.5);
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(1.2rem, 3vw, 1.7rem);
+            font-weight: 300;
+            max-width: 800px;
+            margin: auto;
+            opacity: 0.9;
+        }
+
+        /* --- סרגל ניווט --- */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255,255,255,0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 10px 0;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease-in-out;
+        }
+        nav.scrolled {
+            padding: 5px 0;
+            box-shadow: var(--shadow-md);
+        }
+        
+        nav .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 8px 18px;
+            font-weight: 600;
+            transition: all var(--transition-smooth);
+            display: block;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* --- עיצוב סקשנים וכותרות --- */
+        section {
+            padding: clamp(60px, 12vh, 120px) 20px;
+            overflow: hidden; /*
+            מונע הצגת אלמנטים לפני אנימציה
+            */
+        }
+        
+        .section-title {
+            font-family: var(--header-font);
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 900;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.25rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+        }
+
+        h3 {
+            font-family: var(--header-font);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-top: 40px;
+            margin-bottom: 20px;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        p, li {
+            font-size: 1.1rem;
+            margin-bottom: 1.5em;
+        }
+        strong { color: var(--dark-accent); font-weight: 600; }
+        .highlight {
+            background-color: rgba(78, 205, 196, 0.2);
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+        
+        /* --- כרטיסיות מידע (Cards) --- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            padding: 35px;
+            transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+            border-left: 8px solid var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        .card h4 {
+            color: var(--primary-color);
+            font-family: var(--header-font);
+            font-size: 1.8rem;
+            margin: 0 0 15px;
+        }
+        .card .icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        /* --- טבלה --- */
+        .table-container {
+            overflow-x: auto;
+            margin: 40px 0;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--light-gray);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--card-bg);
+        }
+        th, td {
+            padding: 20px 25px;
+            text-align: right;
+            border-bottom: 1px solid var(--light-gray);
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-family: var(--header-font);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        tbody tr:hover {
+            background-color: var(--background-color);
+        }
+        .status-win { font-weight: 700; color: #1a535c; }
+        .status-lose { font-weight: 700; color: var(--dark-accent); }
+        .status-neutral { font-weight: 700; color: #f28c38; } /* כתום */
+
+        /* --- ציר זמן --- */
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--light-gray);
+            right: 24px;
+        }
+        .timeline-item {
+            padding: 10px 60px 20px 0;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::after {
+            content: attr(data-icon);
+            font-size: 2rem;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            right: 0px;
+            top: 0;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            z-index: 1;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 0 0 5px var(--background-color);
+        }
+        .timeline-content {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-md);
+            border-right: 5px solid var(--accent-color);
+        }
+        .timeline-content h4 {
+            margin: 0 0 15px;
+            color: var(--dark-accent);
+            font-size: 1.8rem;
+            font-family: var(--header-font);
+        }
+
+        /* --- קטע נתוני מפתח --- */
+        .data-hub {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--border-radius);
+            padding: 50px;
+            margin-top: 60px;
+        }
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+        .data-item .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            font-family: var(--header-font);
+            color: var(--secondary-color);
+            line-height: 1.1;
+        }
+        .data-item .stat-label {
+            font-size: 1.1rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        /* --- פתרונות --- */
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .solution-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+        .solution-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        .solution-icon {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            background-color: rgba(78, 205, 196, 0.2);
+            padding: 15px;
+            border-radius: 50%;
+            min-width: 80px;
+            height: 80px;
+            display: grid;
+            place-items: center;
+        }
+        .solution-content h4 {
+            font-family: var(--header-font);
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0 0 10px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--text-color);
+            color: #e0e0e0;
+            text-align: center;
+            padding: 50px 20px;
+        }
+        
+        /* --- כפתור חזרה למעלה --- */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 55px;
+            height: 55px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: all var(--transition-smooth);
+            z-index: 1001;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* --- אנימציות גלילה --- */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- עיצוב רספונסיבי --- */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 5px;
+            }
+            nav ul li a {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+            .data-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+             nav ul {
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            th, td {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+            .solution-item {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .back-to-top {
+                bottom: 15px;
+                left: 15px;
+                width: 50px;
+                height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="container fade-in-up">
+            <h1>הונאה על הצלחת</h1>
+            <p>האמת המלאה מאחורי סל הפירות והירקות היקר בישראל</p>
+        </div>
+    </header>
+
+    <nav id="navbar">
+        <div class="container">
+            <ul>
+                <li><a href="#intro" class="active">מבוא</a></li>
+                <li><a href="#failures">שלושת הכשלים</a></li>
+                <li><a href="#wholesalers">הסיטונאים החדשים</a></li>
+                <li><a href="#cartel">הקרטל החוקי</a></li>
+                <li><a href="#whowins">מנצחים ומפסידים</a></li>
+                <li><a href="#journey">מסע העגבנייה</a></li>
+                <li><a href="#solution">הפתרון</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        
+        <section id="intro">
+            <div class="container">
+                <h2 class="section-title fade-in-up">תעלומת המחיר הגבוה</h2>
+                <p class="section-subtitle fade-in-up">כולנו מרגישים את זה בכיס. האינסטינקט מאשים את הרשתות ב"חמדנות", אך זוהי אמת חלקית ומטעה. הבעיה אינה נקודתית, אלא מערכתית: ארכיטקטורה כלכלית מעוותת, שנבנתה במשך עשורים ופועלת לטובת החזקים ביותר. דוח זה יחשוף את המנגנון.</p>
+            </div>
+        </section>
+
+        <section id="failures" style="background-color: #eaf4f4;">
+            <div class="container">
+                <h2 class="section-title fade-in-up">שלושת כשלי היסוד של השוק</h2>
+                <p class="section-subtitle fade-in-up">יוקר המחיה אינו תוצאה של גורם בודד, אלא של שילוב קטלני בין שלושה כשלים מרכזיים המזינים זה את זה.</p>
+                <div class="card-grid">
+                    <div class="card fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="icon">📜</div>
+                        <h4>1. כשל רגולטורי</h4>
+                        <p><strong>קרטל בחסות החוק.</strong> סעיף בחוק התחרות מעניק פטור לחקלאות מאיסור על תיאום מחירים. בפועל, זה מאפשר לארגוני המגדלים הגדולים להגביל את ההיצע באופן מלאכותי ולקבוע רצפת מחיר גבוהה לכולם.</p>
+                    </div>
+                    <div class="card fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="icon">🏛️</div>
+                        <h4>2. כשל תשתיתי</h4>
+                        <p><strong>היעדר שוק סיטונאי.</strong> מאז 2006, ישראל פועלת ללא שוק סיטונאי מרכזי. הוואקום שנוצר העביר כוח עצום לרשתות השיווק, מנע תחרות, והפך את בזבוז המזון לחלק מובנה במודל העסקי.</p>
+                    </div>
+                    <div class="card fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="icon">⚖️</div>
+                        <h4>3. כשל מבני</h4>
+                        <p><strong>כוח ריכוזי לא שווה.</strong> חקלאי קטן ובודד עומד לבדו מול קניין ריכוזי וחזק (רשת השיווק) שמכתיב לו תנאים דורסניים כמו מכירה בקונסיגנציה (תשלום רק על מה שנמכר), וכל זאת במחיר בסיס שנקבע על ידי הקרטל.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="wholesalers">
+            <div class="container">
+                <h2 class="section-title fade-in-up">פיצוח מיתוס "פערי התיווך"</h2>
+                <h3 class="fade-in-up">הסיטונאים החדשים: רשתות השיווק</h3>
+                <p class="fade-in-up">כאשר רשתות השיווק טוענות שהרווח שלהן על פירות וירקות נמוך, הן צודקות טכנית אך מטעות מהותית. הסיבה לכך היא שהן הפכו לסיטונאי של עצמן. המרכז הלוגיסטי (מרלו"ג) של הרשת הוא חטיבה סיטונאית לכל דבר: הוא קונה מהחקלאי, מוסיף את כל עלויות התפעול האדירות שלו (שינוע, קירור, מיון, ובמיוחד עלות הבזבוז והפחת), ורק אז "מוכר" את הסחורה לחנויות הרשת במחיר פנימי גבוה. החנות, שקונה במחיר גבוה, נשארת עם מרווח קטן. בפועל, **כל חוסר היעילות של המערך הסיטונאי מגולגל ישירות למחיר לצרכן**, והרווח הנמוך בחנות הוא רק אשליה חשבונאית.</p>
+
+                <div class="data-hub fade-in-up">
+                    <h3 style="color:white; text-align:center; border:none;">מספרי מפתח</h3>
+                    <div class="data-grid">
+                        <div class="data-item">
+                            <div class="stat-number" data-target="80">0</div>
+                            <div class="stat-label">מהייצור מגיע מ-20% מהמגדלים הגדולים</div>
+                        </div>
+                         <div class="data-item">
+                            <div class="stat-number" data-target="25">0</div>
+                            <div class="stat-label">אובדן מזון (פחת) ממוצע בענף</div>
+                        </div>
+                         <div class="data-item">
+                            <div class="stat-number" data-target="67">0</div>
+                            <div class="stat-label">שליטה של 5 רשתות על השוק הקמעונאי</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="cartel" style="background-color: #eaf4f4;">
+             <div class="container">
+                <h2 class="section-title fade-in-up">הקרטל החוקי: מי באמת מרוויח?</h2>
+                <p class="fade-in-up">הפטור מחוק התחרות מאפשר למגדלים הגדולים, דרך מועצת הצמחים, לתאם כמויות ולהבטיח מחיר גבוה ויציב. אך האם מחיר זה משרת את החקלאי הקטן? התשובה היא לא. למעשה, הוא מנציח את נחיתותו.</p>
+                <p class="fade-in-up">לחקלאי הגדול יש עלויות ייצור נמוכות (יתרון לגודל), ולכן מחיר מכירה גבוה מתורגם אצלו לרווחי עתק. לעומת זאת, החקלאי הקטן מתמודד עם עלויות ייצור גבוהות, ואותו מחיר בדיוק בקושי מאפשר לו לשרוד. המחיר הגבוה, אם כן, אינו "רשת ביטחון" לחלשים, אלא **מנגנון להבטחת רווחיות מקסימלית לחזקים ביותר**, כל זאת על חשבון הצרכנים.</p>
+            </div>
+        </section>
+
+        <section id="whowins">
+            <div class="container">
+                <h2 class="section-title fade-in-up">מאזן הכוחות: מנצחים ומפסידים</h2>
+                <p class="section-subtitle fade-in-up">התמונה המתקבלת אינה של "רעים" ו"טובים", אלא של מערכת עם תמריצים מעוותים שמייצרת מנצחים ומפסידים ברורים.</p>
+                <div class="table-container fade-in-up">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>השחקן</th>
+                                <th>סטטוס</th>
+                                <th>הסיבה הטכנית</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>מגדלים גדולים (תאגידים, קיבוצים)</strong></td>
+                                <td class="status-win">✅ מנצחים ראשיים</td>
+                                <td>מרוויחים מהפער בין מחיר מכירה מלאכותי-גבוה לעלויות ייצור נמוכות (יתרון לגודל), בזכות הכשל הרגולטורי.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>חקלאי קטן/בינוני</strong></td>
+                                <td class="status-lose">❌ מפסיד</td>
+                                <td>מוכר במחיר גבוה אך עם עלויות גבוהות. שולי הרווח אפסיים והוא סופג את כל הסיכון (קונסיגנציה, דחיית סחורה).</td>
+                            </tr>
+                            <tr>
+                                <td><strong>רשתות שיווק</strong></td>
+                                <td class="status-neutral">⚠️ ניטרלי / מפסיד תפעולית</td>
+                                <td>מרוויחות מכוחן כקניין, אך סופגות עלויות תפעול ובזבוז אדירות במערך הסיטונאי הלא-יעיל שלהן. מגלגלות את העלויות לצרכן.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>הצרכן</strong></td>
+                                <td class="status-lose">❌ מפסיד ראשי</td>
+                                <td>משלם את המחיר הסופי, המגלם בתוכו את כל כשלי המערכת: מחיר הבסיס הגבוה, חוסר היעילות, הבזבוז והיעדר התחרות.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="journey" style="background-color: #eaf4f4;">
+            <div class="container">
+                <h2 class="section-title fade-in-up">מסע העגבנייה 2.0: כך המחיר מתנפח</h2>
+                <p class="section-subtitle fade-in-up">מעקב אחרי מסעה של עגבנייה חושף כיצד כל כשל מערכתי מוסיף עלויות וסיכון, עד למחיר הסופי בקופה.</p>
+                <div class="timeline">
+                    <div class="timeline-item fade-in-up" data-icon="1️⃣">
+                        <div class="timeline-content">
+                            <h4>שלב 1: מחיר בסיס מלאכותי</h4>
+                            <p>ארגוני המגדלים מגבילים היצע ויוצרים מחיר התחלתי גבוה לכלל התוצרת, עוד לפני שיצאה מהשדה. כאן נוצר הרווח הגדול של התאגידים החקלאיים.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in-up" data-icon="2️⃣">
+                        <div class="timeline-content">
+                            <h4>שלב 2: סיכון לחקלאי הקטן</h4>
+                            <p>החקלאי הקטן מוכר לרשת במחיר הבסיס, אך נושא בכל הסיכון: אם הרשת לא תצליח למכור את העגבניות (קונסיגנציה) או תפסול את הסחורה, הוא לא יקבל תשלום.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item fade-in-up" data-icon="3️⃣">
+                        <div class="timeline-content">
+                            <h4>שלב 3: עלויות הבזבוז במרלו"ג</h4>
+                            <p>המרלו"ג מוסיף למחיר את עלויות התפעול, וחשוב מכל – את עלות הפחת והבזבוז (כ-25% בממוצע). בהיעדר שוק משני לעודפים, עלות זו מגולגלת למחיר.</p>
+                        </div>
+                    </div>
+                     <div class="timeline-item fade-in-up" data-icon="4️⃣">
+                        <div class="timeline-content">
+                            <h4>שלב 4: המחיר הסופי בחנות</h4>
+                            <p>החנות מקבלת מהמרלו"ג את העגבנייה במחיר פנימי גבוה, ומוסיפה את עלויות התפעול שלה ואת המרווח הקמעונאי. התוצאה: המחיר הגבוה שאנו משלמים.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solution">
+            <div class="container">
+                <h2 class="section-title fade-in-up">הפתרון: מהפכה מערכתית</h2>
+                <p class="section-subtitle fade-in-up">פתרונות קוסמטיים לא יועילו. נדרש טיפול שורש משולב שיפרק את מוקדי הכוח ויבנה את השוק מחדש על יסודות של תחרות, שקיפות והוגנות.</p>
+                <div class="solutions-grid">
+                    <div class="solution-item fade-in-up" style="transition-delay: 0.1s;">
+                        <div class="solution-icon">🏛️</div>
+                        <div class="solution-content">
+                            <h4>הקמה מיידית של שוק סיטונאי לאומי</h4>
+                            <p>זהו הפתרון התשתיתי החשוב ביותר. שוק מודרני ייצור שקיפות מחירים, יאפשר תחרות, יקטין דרמטית את הבזבוז ויאזן את הכוח בין החקלאים לקניינים.</p>
+                        </div>
+                    </div>
+                     <div class="solution-item fade-in-up" style="transition-delay: 0.2s;">
+                        <div class="solution-icon">📜</div>
+                        <div class="solution-content">
+                            <h4>ביטול הפטור לחקלאות בחוק התחרות</h4>
+                            <p>יש להחיל על ענף החקלאות את אותם כללי משחק החלים על כל המשק, לאסור תיאום מחירים, ולתמוך בחקלאים קטנים באופן ישיר במקום על ידי עיוות השוק.</p>
+                        </div>
+                    </div>
+                     <div class="solution-item fade-in-up" style="transition-delay: 0.3s;">
+                        <div class="solution-icon">🤝</div>
+                        <div class="solution-content">
+                            <h4>רגולציה על יחסי סחר הוגנים</h4>
+                            <p>לאסור בחוק פרקטיקות דורסניות כמו קונסיגנציה, לחייב תנאי תשלום מהירים והוגנים, ולהגביל את יכולתן של הרשתות לפסול סחורה באופן שרירותי.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>מחקר, ניתוח ועיצוב: פרויקט מיוחד 2025</p>
+            <p style="font-size: 0.9rem; opacity: 0.7;">נבנה כדי להאיר את האמת. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <button class="back-to-top" title="חזרה למעלה">↑</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.getElementById('navbar');
+            const navLinks = document.querySelectorAll('nav ul li a');
+            const sections = document.querySelectorAll('section[id]');
+            const backToTopButton = document.querySelector('.back-to-top');
+            
+            // --- Intersection Observer for animations ---
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // --- Number counting animation ---
+            const statObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const counter = entry.target;
+                        const target = +counter.getAttribute('data-target');
+                        let count = 0;
+                        const duration = 2000; // 2 seconds
+                        const stepTime = Math.abs(Math.floor(duration / target));
+
+                        const timer = setInterval(() => {
+                            count++;
+                            counter.innerText = count;
+                            if (count === target) {
+                                clearInterval(timer);
+                            }
+                        }, stepTime);
+                        
+                        observer.unobserve(counter); // Animate only once
+                    }
+                });
+            }, { threshold: 0.8 });
+
+            document.querySelectorAll('.stat-number').forEach(counter => {
+                statObserver.observe(counter);
+            });
+
+            // --- Scroll-based functionality ---
+            const onScroll = () => {
+                // Navbar effects
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                    backToTopButton.classList.add('visible');
+                } else {
+                    navbar.classList.remove('scrolled');
+                    backToTopButton.classList.remove('visible');
+                }
+
+                // Active Nav Link Logic
+                let currentSectionId = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.scrollY >= sectionTop - navbar.offsetHeight - 50) {
+                        currentSectionId = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSectionId}`) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', onScroll, { passive: true });
+
+            // --- Back to Top button functionality ---
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Initial call
+            onScroll();
+        });
+    </script>
+
+</body>
+</html>```
